@@ -9,8 +9,6 @@ dotenv.config()
 const app = express()
 const port = process.env.PORT || 5001
 
-connectDB();
-
 //middleware
 app.use(express.json())
 app.use(rateLimiter)
@@ -18,8 +16,10 @@ app.use(rateLimiter)
 // middleware di percorso per le rotte dell'entità note 
 app.use("/api/notes", notesRoute)
 
-app.listen(port, () => {
-    console.log(`Server started on: http://localhost:${port}`)
+connectDB().then(() => {
+    app.listen(port, () => {
+        console.log(`Server started on: http://localhost:${port}`)
+    })
 })
 
 

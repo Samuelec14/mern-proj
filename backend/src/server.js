@@ -10,6 +10,9 @@ const port = process.env.PORT || 5001
 
 connectDB();
 
+//middleware
+app.use(express.json())
+
 // middleware di percorso per le rotte dell'entità note 
 app.use("/api/notes", notesRoute)
 

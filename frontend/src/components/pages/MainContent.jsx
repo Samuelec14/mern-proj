@@ -33,12 +33,11 @@ const MainContent = () => {
 
 
     // post di esempio
-    axios.post(`url/parametrico/${user_id}`, {
+    axios.post(`url/parametrico/${user_id}`, bodyExample, {
         headers: {
             Authorization: token,
-            "Content-Type" : "application/json"
+            "Content-Type": "application/json"
         },
-        body: bodyExample
     })
         .then(response => {
             // istruzioni success true
@@ -46,7 +45,6 @@ const MainContent = () => {
         .catch(error => {
             // istruzioni success false 
         })
-
 
     return (
         <div>MainContent</div>
